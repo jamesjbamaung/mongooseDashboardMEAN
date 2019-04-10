@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mongoose info</h1>
+    <% for (key in mongoose) { %>
+        <h3> <%= mongoose[key].name %> </h3>
+        <h5> <%= mongoose[key].info %> </h5>
+        <a href='/mongooses/edit/<%= mongoose[key]._id %>'>Edit this info</a>
+        <form action='/mongooses/destroy/<%= mongoose[key]._id %>' method='post'>
+            <input type='hidden' name='id' value='<%= mongoose[key]._id %>'>
+            <input type='submit' value='Delete Mongoose'>
+        </form>
+    <% } %>
+</body>
+</html>

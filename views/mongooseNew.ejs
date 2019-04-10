@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- tip to easily see objects printed in full instead of [object Object] -->
+        <%- JSON.stringify(messages) %>
+        <!-- based on the structure of your messages, determine how to display them -->
+        <% if(messages.registration) { %>
+            <% for (var x of messages.registration) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    <form action='/mongoose' method='post'>
+        <label for='name'>Name:</label>
+        <input type='text' name='name'>
+        <label for='info'>Info:</label>
+        <input type='text' name='info'>
+        <input type='submit' value='Submit'>
+    </form>
+</body>
+</html>
